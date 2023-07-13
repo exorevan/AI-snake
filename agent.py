@@ -9,7 +9,7 @@ from model import Linear_QNet, QTrainer
 from helper import plot
 
 
-LEARNING_MEMORY = 100_000
+LEARNING_MEMORY = 1_000_000
 SCORE_MEMORY = 30
 BATCH_SIZE = 1000
 LR = 0.001
@@ -161,4 +161,3 @@ def train():
 
 if __name__ == '__main__':
     train()
-

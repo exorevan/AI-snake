@@ -11,10 +11,15 @@ class Linear_QNet(nn.Module):
 
         self.linear1 = nn.Linear(input_size, hidden_size)
         self.linear2 = nn.Linear(hidden_size, output_size)
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, stride=1, padding=1, dilation=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels=1, kernel_size=3, stride=1, padding=0, dilation=1)
 
-    def forward(self, x):
+    def forward(self, x, image_input=None):
         x = F.relu(self.linear1(x))
         x = self.linear2(x)
+
+        #image_input = F.relu(self.conv1(image_input))
+        #image_input = F.relu(self.conv2(image_input))
 
         return x
     
